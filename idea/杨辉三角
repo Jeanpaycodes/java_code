@@ -1,0 +1,33 @@
+import java.util.Arrays;
+
+public class TestOne {
+    public static void main(String[] args) {
+        //杨辉三角
+        int [][] nums = new int[10][];
+        for(int i=0;i<nums.length;i++)            //一维数组的遍历
+        {
+            nums[i] = new int[i+1];               //定义二维数组
+            for(int j=0;j<nums[i].length;j++)     //二维数组遍历需要用二维数组的length
+            {
+                if(j==0||j==nums[i].length-1)
+                {
+                    nums[i][j] = 1;               //打印边上的1 类似于空心三角形
+                }
+                else
+                {
+                    nums[i][j] = nums[i-1][j-1] + nums[i-1][j];
+                }
+            }
+
+        }
+        for(int i=0;i<nums.length;i++)
+        {
+            for(int j=0;j<nums[i].length;j++)
+            {
+                System.out.print(nums[i][j]+"\t");
+            }
+            System.out.println();
+        }
+
+    }
+}
