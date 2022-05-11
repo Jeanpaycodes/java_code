@@ -1,0 +1,12 @@
+public static void main(String[] args) {
+        char x = 'x';
+        int i = 10;
+        System.out.println(true?x:i);
+        System.out.println(true?x:10);
+    }
+    
+    /*
+* 如果其中有一个是变量，按照自动类型转换规则处理成一致的类型；
+* 如果都是常量，如果一个是 char，如果另一个是[0~65535]之间的整数按 char 处理；
+* 如果一个是 char，另一个是其他，按照自动类型转换规则处理成一致的类型；
+*/
