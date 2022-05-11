@@ -1,0 +1,14 @@
+public static void main(String[] args) {
+
+            Integer i1 = 128;
+            Integer i2 = 128;
+            int i3 = 128;
+            int i4 = 128;
+            System.out.println(i1 == i2);
+            System.out.println(i3 == i4);
+            System.out.println(i2 == i3);
+
+    }
+    
+    //Integer 的 i1 和 i2 是对象，他们==比较的是地址。如果-128~127 范围，那么使用缓存的常量对象，如果超过这个范围，是新 new 的对象，不是常量对象
+    //对于i2以及i3 i2先自动拆箱成int类型 再与i3进行比较  若i3是double类型 则i2先自动拆箱成int类型 再自动类型提升成double类型
