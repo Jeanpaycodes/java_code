@@ -1,0 +1,25 @@
+package com.atguigu.chapter04
+
+object $01_Block {
+
+  /**
+    * 块表达式: 由{}包裹的一段代码就是块表达式
+    * 块表达式有返回值的,返回值是{}中最后一个表达式的结果值
+    */
+  def main(args: Array[String]): Unit = {
+
+    val d = {
+
+      val a = 10
+      val b = 20
+      val c = a+b
+      10
+    }
+
+    println(d)
+    d
+  }
+
+}
+
+//所以if代码块也自带返回值
