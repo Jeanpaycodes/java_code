@@ -1,0 +1,67 @@
+package com.atguigu.chapter04
+import scala.util.control.Breaks._
+object $06_BreakAndContinue {
+
+  /**
+    * scala没有break和continue关键字
+    * break: 结束循环
+    * continue: 跳出本次循环,开始下一次循环
+    * scala实现break与continue
+    *     1、需要导入包: import scala.util.control.Breaks._
+    *     2、使用breakable与break方法实现
+    */
+  def main(args: Array[String]): Unit = {
+
+    var a = 0
+
+    //实现break
+    //try {
+    //  while (a <= 10) {
+//
+    //    if (a == 5) throw new Exception("a=5了....")
+    //    println(s"a=${a}")
+    //    a += 1
+    //  }
+    //}catch {
+    //  case e:Exception =>
+    //}
+
+    breakable({
+      while (a <= 10) {
+        if (a == 5) break()
+        println(s"a=${a}")
+        a += 1
+      }
+    })
+    println("----------------------------------------------")
+
+    //实现continue
+    a = 0
+
+/*      while (a <= 10) {
+
+        try {
+          if (a == 5) {
+            a+=1
+            throw new Exception("a=5了....")
+          }
+          println(s"a=${a}")
+          a += 1
+        }catch {
+          case e:Exception =>
+        }
+      }*/
+
+    while (a <= 10) {
+        breakable({
+          if (a == 5) {
+            a+=1
+            break()
+          }
+          println(s"a=${a}")
+          a += 1
+        })
+    }
+  }
+
+}
