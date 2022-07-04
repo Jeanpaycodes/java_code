@@ -1,0 +1,36 @@
+//按照指定规则获取数组最大元素
+	//数据: Array("zhangsan 20 5000","zhaoliu 33 6500","hanmeimei 18 10000")
+	//规则: 获取工资最高的人
+	//结果: "hanmeimei 18 10000"
+  
+  package com.atguigu.homework
+
+object T5 {
+  def main(args: Array[String]): Unit = {
+    val arr=Array[String]("zhangsan 20 5000","zhaoliu 33 6500","hanmeimei 18 10000")
+
+    println(max1(arr,x=>x.split(" ")(0)))
+    println(max(arr,x=>x.split(" ")(1).toInt))
+    println(max(arr,x=>x.split(" ")(2).toInt))
+  }
+  def max(datas:Array[String],func:String=>Int):String={
+    var index=0
+    for(i<-1 until datas.length){
+      if(func(datas(index))<func(datas(i))){
+        index=i
+      }
+    }
+    datas(index)
+  }
+
+  def max1(datas:Array[String],func:String=>String):String={
+    var index=0
+    for(i<-1 until datas.length){
+      if(func(datas(index)).length<func(datas(i)).length){
+        index=i
+      }
+    }
+    datas(index)
+  }
+
+}
