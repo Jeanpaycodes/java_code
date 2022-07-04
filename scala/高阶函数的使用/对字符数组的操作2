@@ -1,0 +1,32 @@
+//按照指定规则对数组的数据进行分组
+	//数据: Array("zhagnsan man beijing","lisi woman shenzhen","zhaoliu man beijing","hanmeimei woman beijing")
+	//规则: 按照地区进行分组
+	//结果: Map( "beijing" -> List("zhagnsan man beijing","zhaoliu man beijing","hanmeimei woman beijing" ) , "shenzhen"->List("lisi woman shenzhen" ))
+	//此时Map与List可用java的集合
+  
+  package com.atguigu.homework
+import java.util
+
+object T3 {
+  def main(args: Array[String]): Unit = {
+    val arr=Array[String]("zhangsan man beijing","lisi woman shenzhen","zhaoliu man beijing","hanmeimei woman beijing")
+    println(groupBy(arr,x=>x.split(" ")(2)))
+  }
+
+  def groupBy(datas:Array[String],func:String=>String)={
+    val map = new util.HashMap[String,util.List[String]]()
+
+    for(element<-datas){
+      val key = func(element)
+      if(map.containsKey(key)){
+        val list = map.get(key)
+        list.add(element)
+      }else{
+        val list = new util.ArrayList[String]()
+        list.add(element)
+        map.put(key,list)
+      }
+    }
+    map
+  }
+}
