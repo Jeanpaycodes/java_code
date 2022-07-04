@@ -1,0 +1,19 @@
+//按照指定的规则对数组数据过滤
+//	数据: Array(1,5,3,2,8,10,9)
+	//规则: 过滤出偶数
+//	结果: Array(2,8,10)
+
+package com.atguigu.homework
+
+object T2 {
+  def main(args: Array[String]): Unit = {
+    val arr = Array(1,5,3,2,8,10,9)
+
+    println(map(arr,x=>x%2==0).toList)
+    println(map(arr,x=>x%2!=0).toList)
+  }
+
+  def map(datas:Array[Int],func:Int=>Boolean) = {
+    for(element<-datas if func(element)) yield element //守卫
+  }
+}
